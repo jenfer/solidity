@@ -63,8 +63,7 @@
             "id": 8,
             "nodeType": "Block",
             "src": "127:2:1",
-            "statements": [],
-            "unchecked": false
+            "statements": []
           },
           "id": 9,
           "implemented": true,
