@@ -925,7 +925,7 @@ bool ExpressionCompiler::visit(FunctionCall const& _functionCall)
 		{
 			acceptAndConvert(*arguments[2], *TypeProvider::uint256());
 			m_context << Instruction::DUP1 << Instruction::ISZERO;
-			m_context.appendConditionalInvalid();
+			m_context.appendConditionalPanic(util::PanicCode::DivisionByZero);
 			for (unsigned i = 1; i < 3; i ++)
 				acceptAndConvert(*arguments[2 - i], *TypeProvider::uint256());
 			if (function.kind() == FunctionType::Kind::AddMod)
@@ -1113,7 +1113,7 @@ bool ExpressionCompiler::visit(FunctionCall const& _functionCall)
 			auto success = m_context.appendConditionalJump();
 			if (function.kind() == FunctionType::Kind::Assert)
 				// condition was not met, flag an error
-				m_context.appendInvalid();
+				m_context.appendPanic(util::PanicCode::Generic);
 			else if (haveReasonString)
 			{
 				utils().revertWithStringData(*arguments.at(1)->annotation().type);
@@ -1883,7 +1883,7 @@ bool ExpressionCompiler::visit(IndexAccess const& _indexAccess)
 			m_context << u256(fixedBytesType.numBytes());
 			m_context << Instruction::DUP2 << Instruction::LT << Instruction::ISZERO;
 			// out-of-bounds access throws exception
-			m_context.appendConditionalInvalid();
+			m_context.appendConditionalPanic(util::PanicCode::ArrayOutOfBounds);
 
 			m_context << Instruction::BYTE;
 			utils().leftShiftNumberOnStack(256 - 8);
@@ -2121,7 +2121,7 @@ void ExpressionCompiler::appendArithmeticOperatorCode(Token _operator, Type cons
 	{
 		// Test for division by zero
 		m_context << Instruction::DUP2 << Instruction::ISZERO;
-		m_context.appendConditionalInvalid();
+		m_context.appendConditionalPanic(util::PanicCode::DivisionByZero);
 
 		if (_operator == Token::Div)
 			m_context << (c_isSigned ? Instruction::SDIV : Instruction::DIV);

@@ -3103,6 +3103,7 @@ string YulUtilFunctions::revertReasonIfDebug(string const& _message)
 string YulUtilFunctions::panicFunction()
 {
 	string functionName = "panic_error";
+	// TODO
 	return m_functionCollector.createFunction(functionName, [&]() {
 		return Whiskers(R"(
 			function <functionName>() {
