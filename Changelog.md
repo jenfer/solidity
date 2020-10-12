@@ -6,6 +6,9 @@ Breaking Changes:
  * Type System: Disallow explicit conversions from negative literals and literals larger than ``type(uint160).max`` to ``address`` type.
 
 
+AST Changes:
+ * New node type: unchecked block - used for ``unchecked { ... }``.
+
 ### 0.7.4 (unreleased)
 
 Language Features:
