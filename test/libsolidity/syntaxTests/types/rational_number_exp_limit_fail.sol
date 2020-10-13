@@ -19,12 +19,12 @@ contract c {
     }
 }
 // ----
-// TypeError 2271: (71-102): Operator ** not compatible with types int_const 1797...(301 digits omitted)...7216 and int_const 4. Precision of rational constants is limited to 4096 bits.
-// TypeError 7407: (71-102): Type int_const 1797...(301 digits omitted)...7216 is not implicitly convertible to expected type int256. Literal is too large to fit in int256.
-// TypeError 2271: (116-148): Operator ** not compatible with types int_const 1797...(301 digits omitted)...7216 and int_const 4. Precision of rational constants is limited to 4096 bits.
-// TypeError 2271: (116-153): Operator ** not compatible with types int_const 1797...(301 digits omitted)...7216 and int_const 4. Precision of rational constants is limited to 4096 bits.
-// TypeError 7407: (116-153): Type int_const 1797...(301 digits omitted)...7216 is not implicitly convertible to expected type int256. Literal is too large to fit in int256.
-// TypeError 2271: (167-203): Operator ** not compatible with types int_const 4 and int_const -179...(302 digits omitted)...7216
+// TypeError 2271: (86-102): Operator ** not compatible with types int_const 4 and int_const 1340...(147 digits omitted)...4096
+// TypeError 2271: (71-102): Operator ** not compatible with types int_const 4 and int_const 4294967296
+// TypeError 2271: (137-153): Operator ** not compatible with types int_const 4 and int_const 1340...(147 digits omitted)...4096
+// TypeError 2271: (122-153): Operator ** not compatible with types int_const 4 and int_const 1157...(70 digits omitted)...9936
+// TypeError 2271: (185-201): Operator ** not compatible with types int_const 4 and int_const 1340...(147 digits omitted)...4096
+// TypeError 2271: (167-203): Operator ** not compatible with types int_const 4 and int_const -115...(71 digits omitted)...9936
 // TypeError 2271: (217-228): Operator ** not compatible with types int_const 2 and int_const 1000...(1226 digits omitted)...0000
 // TypeError 2271: (242-254): Operator ** not compatible with types int_const -2 and int_const 1000...(1226 digits omitted)...0000
 // TypeError 2271: (268-280): Operator ** not compatible with types int_const 2 and int_const -100...(1227 digits omitted)...0000
